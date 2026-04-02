@@ -414,21 +414,17 @@ zorvyn_assignment/
 
 ## Security Checklist
 
-- [x] Password hashing with bcrypt (12 salt rounds)
-- [x] JWT authentication on all protected routes
-- [x] Role-based authorization (per-route middleware)
-- [x] Zod input validation (body, query, params)
-- [x] SQL injection protection (Prisma parameterized queries)
-- [x] Helmet security headers
-- [x] CORS configured with allowed origin
-- [x] Rate limiting (configured, disabled for dev)
-- [x] Environment variable validation at startup
-- [ ] HTTP-only cookies for JWT (recommended for production)
-- [ ] CSRF protection (needed if using cookies)
-- [ ] Email verification on registration
+-  Password hashing with bcrypt (12 salt rounds)
+-  JWT authentication on all protected routes
+-  Role-based authorization (per-route middleware)
+-  Zod input validation (body, query, params)
+-  SQL injection protection (Prisma parameterized queries)
+-  Helmet security headers
+-  CORS configured with allowed origin
+-  Rate limiting (configured, disabled for dev)
+-  Environment variable validation at startup
+-  HTTP-only cookies for JWT (recommended for production)
+-  CSRF protection (needed if using cookies)
+-  Email verification on registration
 
----
 
-## License
-
-ISC

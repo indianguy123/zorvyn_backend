@@ -1,6 +1,7 @@
 import { env } from './config/env';
 import { connectDatabase } from './config/db';
 import app from './app';
+import { initCronJobs } from './cron';
 
 const startServer = async (): Promise<void> => {
   // 1. Connect to database (fail fast if connection fails)
@@ -16,6 +17,9 @@ const startServer = async (): Promise<void> => {
     ║   URL: http://localhost:${String(env.PORT).padEnd(22)}║
     ╚═══════════════════════════════════════════════╝
     `);
+
+    // 3. Start scheduled cron jobs
+    initCronJobs();
   });
 };
 

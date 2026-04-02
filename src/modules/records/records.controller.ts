@@ -23,7 +23,7 @@ export const listRecords = asyncHandler(async (req: Request, res: Response): Pro
 
 /** GET /api/records/:id — Get a single record */
 export const getRecordById = asyncHandler(async (req: Request, res: Response): Promise<void> => {
-  const record = await recordsService.getRecordById(req.params.id);
+  const record = await recordsService.getRecordById(req.params.id as string);
   sendSuccess(res, record, 'Financial record retrieved successfully');
 });
 
@@ -35,13 +35,13 @@ export const updateRecord = asyncHandler(async (req: Request, res: Response): Pr
     documentUrl = await recordsService.uploadDocument(req.file.buffer, req.file.originalname);
   }
 
-  const record = await recordsService.updateRecord(req.params.id, req.body, documentUrl);
+  const record = await recordsService.updateRecord(req.params.id as string, req.body, documentUrl);
   sendSuccess(res, record, 'Financial record updated successfully');
 });
 
 /** DELETE /api/records/:id — Soft delete a financial record */
 export const deleteRecord = asyncHandler(async (req: Request, res: Response): Promise<void> => {
-  const record = await recordsService.softDeleteRecord(req.params.id);
+  const record = await recordsService.softDeleteRecord(req.params.id as string);
   sendSuccess(res, record, 'Financial record deleted successfully');
 });
 

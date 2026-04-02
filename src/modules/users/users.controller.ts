@@ -11,18 +11,18 @@ export const listUsers = asyncHandler(async (req: Request, res: Response): Promi
 
 /** GET /api/users/:id — Get a single user */
 export const getUserById = asyncHandler(async (req: Request, res: Response): Promise<void> => {
-  const user = await usersService.getUserById(req.params.id);
+  const user = await usersService.getUserById(req.params.id as string);
   sendSuccess(res, user, 'User retrieved successfully');
 });
 
 /** PATCH /api/users/:id — Update user role/status */
 export const updateUser = asyncHandler(async (req: Request, res: Response): Promise<void> => {
-  const user = await usersService.updateUser(req.params.id, req.body);
+  const user = await usersService.updateUser(req.params.id as string, req.body);
   sendSuccess(res, user, 'User updated successfully');
 });
 
 /** PATCH /api/users/:id/deactivate — Deactivate a user */
 export const deactivateUser = asyncHandler(async (req: Request, res: Response): Promise<void> => {
-  const user = await usersService.deactivateUser(req.params.id);
+  const user = await usersService.deactivateUser(req.params.id as string);
   sendSuccess(res, user, 'User deactivated successfully');
 });
